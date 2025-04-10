@@ -1,0 +1,966 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    width: 100%;
+    min-width: 100%;
+    background: white;
+}
+header{
+    height: 80px;
+    width: 100%;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.container{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-list{
+    display: none;
+}
+
+
+nav, ul, li {
+    list-style: none;
+    display: inline;
+    margin-right: 20px;
+    font-weight: 550px;
+}
+.logo{
+    font-size: 24px;
+}
+.hero{
+    width: 100%;
+    height: auto;
+    background : url(images/heo-image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 140px 0;
+    margin-bottom: 20px;
+}
+.hero h2{
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+.hero p{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.search-box{
+    max-width: 550px;
+    margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: red;
+}
+.search-box input{
+    width: 70%;
+    padding: 10px;
+    outline: none;
+    border: 0;
+    border-radius: 5px 0 0 5px;
+    font-size: 1rem;
+    border: 1px solid red;
+}
+.search-box button{
+    
+    padding: 10px 20px;
+    outline: none;
+    border: 0;
+    border-radius:0px 5px 5px 0px;
+    font-size: 1rem;
+    background: red;
+    color: white;
+    cursor: pointer;
+}
+
+/*...............Recipe Section...............*/
+
+.recipes{
+    padding: 50px;
+}
+.recipes h2{
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+.recipe-section{
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    column-gap: 10px;
+}
+.recipe-card{
+    background: white;
+    margin: 30px 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+    overflow: hidden;
+    box-shadow: 0 5px 8px rgba(0,0, 0, 0.1);
+}
+.recipe-card img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.recipe-card h2{
+    font-size: 22px;
+    padding: 20px;
+}
+.recipe-card p{
+    font-size: 18px;
+    padding: 20px;
+}
+.recipe-card a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: black;
+    color: white;
+    padding: 15px 0;
+    cursor: pointer;
+}
+footer{
+    background: black;
+    padding: 20px 0;
+    color: white;
+    text-align: center;
+}
+.menu-icon{
+    font-size: 24px;
+    padding: 20px;
+    text-align: right;
+    cursor: pointer;
+    display: block;
+}
+
+
+
+
+
+/* Modal Styles */
+/* Update your existing modal styles or add these */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 1000;
+    /* Remove overflow: auto if you don't need scrolling */
+}
+
+.modal-content {
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 500px;
+    /* Remove animation properties */
+    animation: none; /* This disables any existing animation */
+}
+
+/* Remove or comment out these animation keyframes if not needed elsewhere */
+/*
+@keyframes slideDown {
+    from { 
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+*/
+
+/* Keep all your other existing modal styles */
+
+.modal-content h2 {
+    color: #ff4444;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    position: relative;
+}
+
+.modal-content h2::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background: #ff4444;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #ff4444;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 68, 68, 0.2);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: #e63939;
+    letter-spacing: 2px;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+}
+
+.submit-btn:hover::before {
+    left: 100%;
+}
+
+/* Close button styling */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #ff4444;
+}
+
+/* recipe from*/
+#recipe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#recipe-form input, #recipe-form textarea {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+#recipe-form input:focus,
+#recipe-form textarea:focus {
+    border-color: #ff4444;
+    outline: none;
+}
+#recipe-form button:hover {
+    background: #e63939;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { 
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 20% auto;
+        padding: 20px;
+    }
+}
+
+.delete-btn {
+    width: 100%;
+    padding: 10px;
+    background: #ff4444;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: #cc0000;
+}
+
+
+/* Add these styles to your existing style.css file */
+
+/* Navigation Hover Effects */
+.nav-list li a{
+    color: white;
+    position: relative;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: capitalize; /* Makes text look consistent */
+}
+
+.nav-list li a:hover {
+    color: red;
+}
+
+/* Underline effect on hover */
+.nav-list li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: red;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.nav-list li:hover a::after {
+    width: 80%; /* Underline grows to 80% of li width */
+}
+
+/* For the "Add Recipe" button specifically */
+#add-recipe-btn a{
+    font-weight: bold;
+}
+
+#add-recipe-btn:hover {
+    color: white;
+    background-color: red;
+    border-radius: 4px;
+}
+
+/* Mobile menu icon hover effect */
+.menu-icon:hover {
+    color: red;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+/* For desktop view - make the hover effects more prominent */
+@media only screen and (min-width: 768px) {
+    .nav-list li {
+        padding: 8px 15px;
+        margin-right: 10px;
+    }
+    
+    .nav-list li:hover {
+        transform: translateY(-2px);
+    }
+    
+    #add-recipe-btn {
+        padding: 8px 15px;
+    }
+}
+/*...................media Query...................*/
+
+@media only screen and (min-width: 768px){
+    .menu-icon{
+        display: none;
+    }
+
+    .nav-list{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .hero h2{
+        font-size: 28px;
+    }
+
+    .hero p{
+        font-size: 15px;
+    }
+}
+
+/*...................effect on recipes card...................*/
+
+
+
+/* Recipe Card Hover Effects */
+.recipe-card {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.recipe-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-card img {
+    transition: all 0.5s ease;
+}
+
+.recipe-card:hover img {
+    transform: scale(1.05);
+    filter: brightness(0.9);
+}
+
+.recipe-card h2 {
+    transition: color 0.3s ease;
+}
+
+.recipe-card:hover h2 {
+    color: red;
+}
+
+/* View Recipe Button Effect */
+.recipe-card a {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.recipe-card a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+}
+
+.recipe-card a:hover {
+    background: #333;
+}
+
+.recipe-card a:hover::before {
+    left: 100%;
+}
+
+/* Delete Button Effect */
+.delete-btn {
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: #ff0000 !important;
+    transform: scale(1.02);
+    box-shadow: 0 2px 5px rgba(255, 0, 0, 0.3);
+}
+
+/* Optional: Add a subtle border on hover */
+.recipe-card:hover {
+    border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+/* Optional: Add a floating effect for the entire card */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.recipe-card:hover {
+    animation: float 3s ease-in-out infinite;
+}
+
+
+
+/* Add these styles to your search form */
+
+/* Hero Section Enhancements */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Dark overlay for better text contrast */
+    z-index: 1;
+}
+
+.hero-section {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1.5s ease-out;
+}
+
+.search-box {
+    animation: fadeInUp 1s ease-out;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.search-box:hover {
+    transform: scale(1.02);
+}
+
+.search-box input {
+    flex: 1;
+    padding: 15px 25px;
+    border: none;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.search-box button {
+    padding: 15px 30px;
+    background: #ff4444;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.search-box button:hover {
+    background: #ff0000;
+    letter-spacing: 2px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from { 
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .search-box {
+        flex-direction: column;
+        border-radius: 10px;
+    }
+    
+    .search-box input,
+    .search-box button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+
+
+
+/* Add this to your reciepe heading */
+
+.recipes h2 {
+    position: relative;
+    display: inline-block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    text-align: center;
+    width: 100%;
+}
+
+.recipes h2::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background-color: #ff4444;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+}
+
+.recipes h2::after {
+    content: '🍴';
+    position: absolute;
+    font-size: 1.5rem;
+    right: -10px;
+    top: -15px;
+    opacity: 0.7;
+    animation: float 3s ease-in-out infinite;
+}
+
+.recipes h2:hover::before {
+    width: 100px;
+    background-color: #ff0000;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+
+/* Add this to your main heading */
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; /* For absolute positioning of decorative elements */
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #ff4444;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    position: relative;
+    padding: 0 0 10px 0;
+    margin: 0;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background: #ff8a00;
+    bottom: 0;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.logo::after {
+    content: '🍴';
+    margin-left: 10px;
+    font-size: 1.8rem;
+    vertical-align: middle;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+
+.logo:hover {
+    transform: translateY(-2px);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.logo:hover::before {
+    width: 100%;
+    background: #ff4444;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+/* For mobile responsiveness */
+@media only screen and (max-width: 768px) {
+    .logo {
+        font-size: 2rem;
+    }
+    .logo::after {
+        font-size: 1.4rem;
+    }
+}
+
+
+/* Footer Styles */
+footer {
+    background: #222;
+    color: #fff;
+    padding: 50px 0 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    color: #ff4444;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background: #ff4444;
+}
+
+.footer-section p {
+    color: #bbb;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #ff4444;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #fff;
+    background: #333;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.social-icons a:hover {
+    background: #ff4444;
+    transform: translateY(-3px);
+}
+
+.newsletter-form {
+    display: flex;
+    margin-top: 15px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.newsletter-form button {
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.newsletter-form button:hover {
+    background: #ff3333;
+}
+
+.footer-bottom {
+    background: #111;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-links a {
+    color: #aaa;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ff4444;
+}
+
+/* Font Awesome for icons (add to head) */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form button {
+        padding: 10px;
+        margin-top: 5px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
