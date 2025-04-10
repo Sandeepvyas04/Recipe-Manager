@@ -6,7 +6,7 @@ A frontend recipe management system using HTML5, CSS3, and vanilla JavaScript. I
 
 A responsive recipe management web application built with HTML, CSS, and JavaScript.
 
-![RecipeHub Screenshot](/final_output.jpeg) *(Replace with actual screenshot path)*
+![RecipeHub Screenshot](/final_output.jpeg) 
 
 ## Features ✨
 - 🖼️ Dynamic recipe cards with images
